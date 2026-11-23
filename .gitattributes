@@ -1,0 +1,10 @@
+# Keep line endings stable regardless of the contributor's OS.
+* text=auto
+
+# Windows scripts: CRLF (cmd.exe requires it; the .ps1 keeps its UTF-8 BOM, git does not touch it)
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+
+# Linux scripts: LF (bash breaks on CR)
+*.sh  text eol=lf
+*.py  text eol=lf

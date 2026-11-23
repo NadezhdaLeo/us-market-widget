@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# macOS build output
+macos/*.app
+macos/us-market-widget
