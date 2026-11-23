@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Control script for the US Market Widget (Ubuntu, KDE Plasma).
+# Control script for the US Market Widget (Ubuntu / GNOME).
 #   ./widget.sh install        install deps, enable autostart, start now
 #   ./widget.sh start|stop|restart|status
 #   ./widget.sh autostart-on|autostart-off

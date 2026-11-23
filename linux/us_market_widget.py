@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """
-US Market Widget for Linux: GNOME top-bar indicator / KDE Plasma tray icon.
+US Market Widget for Linux: GNOME top-bar indicator.
 
 Shows the current US stock market phase (NYSE / Nasdaq) as a colored dot plus
-a short status text in the panel (GNOME) or tooltip (KDE Plasma), with
-details in the drop-down menu.
+a short status text in the panel, with details in the drop-down menu.
 
 Phases (ET = New York time):
   04:00 - 09:30  Pre-market
@@ -40,8 +39,6 @@ CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / 
 CACHE_DIR = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / APP_ID
 EXTRA_CLOSURES_FILE = CONFIG_DIR / "extra_closures.txt"
 NO_LABEL_FLAG = CONFIG_DIR / "no_label"
-# Plasma ignores the AppIndicator panel label, so the status goes to the tooltip instead.
-IS_KDE = "KDE" in os.environ.get("XDG_CURRENT_DESKTOP", "").upper().split(":")
 
 # ============================ SETTINGS ======================================
 
@@ -370,8 +367,7 @@ def run_ui():
         refresh()
 
     mi_label.connect("toggled", on_label_toggle)
-    if not IS_KDE:
-        menu.append(mi_label)
+    menu.append(mi_label)
 
     mi_extra = Gtk.MenuItem(label="Edit extra closures…")
 
@@ -438,7 +434,7 @@ def run_ui():
                 ind.set_title(f"US Market · {status}")
             state["tooltip"] = status
 
-        if mi_label.get_active() and not IS_KDE:
+        if mi_label.get_active():
             ind.set_label(status,
                           "AFTER-HOURS · After-hours end in 00h 00m")
         else:

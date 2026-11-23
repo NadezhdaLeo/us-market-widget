@@ -2,13 +2,12 @@
 
 The US Market Widget is a small desktop indicator. It shows the current session of the US stock market (NYSE and Nasdaq). It also shows the time to the next session change.
 
-The widget has three versions. The three versions have the same logic and the same colors. The Linux version operates on GNOME (Ubuntu) and on KDE Plasma.
+The widget has three versions. The three versions have the same logic and the same colors. The Linux version operates on GNOME (Ubuntu).
 
 | Platform | Type | Requirements | Folder |
 |----------|------|--------------|--------|
 | Windows 10 and 11 | Small window on top of other windows, plus a tray icon | None. Uses the PowerShell that is part of Windows. | [`windows/`](windows/) |
 | Ubuntu 22.04 and 24.04 | Indicator in the GNOME top bar, with status text and a menu | Python 3 and two apt packages | [`linux/`](linux/) |
-| KDE Plasma 5 and 6 | Icon in the system tray, with status text in the tooltip and a menu | Python 3, PyGObject, Ayatana AppIndicator | [`linux/`](linux/) |
 | macOS 13 and newer | Small window on top of other windows, plus a menu bar item | Xcode Command Line Tools | [`macos/`](macos/) |
 
 The widget calculates the NYSE holiday calendar from the official rules. You do not update the calendar each year.
@@ -23,7 +22,7 @@ The widget calculates the NYSE holiday calendar from the official rules. You do 
 
 To stop the widget, double-click `Stop-Widget.cmd`. For more information, see [windows/README.md](windows/README.md).
 
-### Ubuntu and KDE Plasma
+### Ubuntu
 
 1. Open a terminal in the `linux` folder.
 2. Run this command:
@@ -105,7 +104,7 @@ macos/widget.sh test
 
 ## Related
 
-[grafana-observability-kit](https://github.com/YOUR_GITHUB_USER/grafana-observability-kit) uses a simplified version of this session logic to put exchange hours on an on-call dashboard. This widget is the full rule-based NYSE calendar; the kit's panels are weekday hours only.
+[grafana-observability-kit](https://github.com/NadezhdaLeo/grafana-observability-kit) uses a simplified version of this session logic to put exchange hours on an on-call dashboard. This widget is the full rule-based NYSE calendar; the kit's panels are weekday hours only.
 
 ## Contributing
 
@@ -113,6 +112,6 @@ Keep the three versions the same. The session logic, the labels, and the colors 
 
 ## Credits and license
 
-Windows, Ubuntu and macOS versions and the calendar rules by the repository author. KDE Plasma support in the Linux version was contributed by a colleague.
+All three versions and the calendar rules by the repository author.
 
 MIT. See [LICENSE](LICENSE).
